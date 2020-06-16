@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>  
+ 
+  <div class="backimg">
+    <input type="text" class="maininput">
+  </div>
+  <div class="navbar">
+      <div class="navtabcontainer">
+        <ul class="navlist">
+          <li>
+            <a>Home</a>
+          </li>
+          <li>
+            <a>Research Services</a>
+            <div class="dropdown cart-drop">
+              <ul class="reseatch-list">
+                <li>Research Materials</li>
+                <li>Sources</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a class="dropsign">About</a> 
+            <div class="dropdown">
+              <ul class="account-list">
+                <li><a>Company Details</a></li>
+                <li><a>Material</a></li>
+                <li><a>Content</a></li>
+                <li><a>Contributors</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a>Contact Us</a>
+            <div class="dropdown">
+              <ul>
+                <li>Contact Details</li>
+                <li>companyname@abc.com</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+    </div>
+  </div>
+
+<!--Navigation Bar ends here-->
+
+
+  <div class="rootdiv">
+    <div class="container-fluid">
+      <div id='root' class="row"></div>
+    </div>
+  </div>
+</body>
+<script>
+    async function fetchData(){
+        var [htmlpromise,data]=await Promise.all([fetch("./product.html"),fetch("./data.json")]);
+        var [htmltext,alldata]=await Promise.all([htmlpromise.text(),data.json()]);
+        var parser=new DOMParser();
+        console.log(alldata);
+        alldata.landing_data.forEach((a,i)=>{
+          var doc=parser.parseFromString(htmltext,'text/html').body.children[0];
+          doc.setAttribute("id",i)
+          doc.querySelector('h5').innerText=a.name;
+          doc.querySelector('img').setAttribute("src",a.url);
+          console.log(doc);
+          document.getElementById('root').appendChild(doc);
+        })
+       
+    }
+    document.onscroll=()=>{
+      if(window.scrollY>730){
+        document.querySelector(".navbar").setAttribute('style','background:black;z-index:1')
+      }
+      else{
+        document.querySelector(".navbar").setAttribute('style','background:none;z-index:0')
+      }
+    }
+</script>
+
+
+
+</html>

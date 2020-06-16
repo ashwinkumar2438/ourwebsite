@@ -1,0 +1,186 @@
+*{
+    font-size:14px;
+    box-sizing: border-box;
+  }
+  body{
+    margin:0px;
+    padding:0px
+  }
+  .navbar::before{
+    width:100%;
+    height:70px;
+    background:black;
+    opacity:0.5;
+    position: fixed;
+    top:0px;
+    left:0px;
+  }
+  .navbar{
+    width:100%;
+    height:70px;
+    position: fixed;
+    top:0px;
+    left:0px;
+  }
+  .navtabcontainer{
+    height:70px;
+  }
+ 
+  .navlist{
+    list-style-type: none;
+    line-height: 70px;
+    vertical-align: middle;
+    text-align: center;
+    margin:0px;
+    padding:0px;
+    display:flex;
+    justify-content: space-around;
+  }
+  .navlist>li{
+    display:inline;
+    position: relative;
+  }
+  .navlist>li>a{
+    cursor:pointer;
+    color:white;
+  }
+
+.dropsign::after{
+    content: '\uFF0B';
+    border: 0 none;
+    font-size: 12px;
+    font-weight: 900;
+    margin-left: 5px;
+    transition: all 0.33s ease;
+}
+
+  div.dropdown ul{
+    list-style-type: none;
+    padding: 0px;
+  }
+  div.dropdown ul>li{
+    padding: 10px;
+    margin: 5px;
+    border-bottom: 1px solid lightgrey;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  div.dropdown ul>li:last-child{
+    border:none;
+  }
+  div.dropdown{
+    position:absolute;
+    top:70px;
+    left:0px;
+    line-height: 20px;
+    display:none;
+    height:200px;
+    min-width:100px;
+    background:white;
+    text-align:center;
+    cursor:pointer;
+    padding:5px 10px;
+  }
+  div.dropdown::before{
+    content:'';
+    position:absolute;
+    top:-70px;
+    left:0px;
+    width:100px;
+    height:70px;
+  }
+  div.dropdown:hover{
+    display: block;
+  }
+  div.dropdown li:hover{
+      color:lightsalmon;
+      transform: scale(1.1,1.1);
+  }
+ 
+  .navlist>li>a:hover+div.dropdown{
+    display:block;
+  }
+  .backimg{
+    background-image: url("./walle.jpg");
+    height: 800px;
+    width:100%;
+  }
+  .maininput{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid black;
+    overflow: hidden;
+    outline: none;
+    line-height: 40px;
+    vertical-align: middle;
+    padding: 0px 20px;
+  }
+  .maininput:focus,.maininput:active{
+    border-radius: 20px;
+    border: 2px solid rgba(0,255,0,0.8);
+  }
+  .rootdiv{
+    width:100%;
+    background-image: url('./background.png');
+    background-repeat: repeat;
+  }
+  .image{
+    width:100%;
+    height:100%;
+  }
+  .block{
+    height:300px;
+    width: 100%;
+    background:rgba(120,120,120,0.5);
+    padding: 20px 10px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    backface-visibility: hidden;
+  }
+  /* .blockback{
+    position:absolute;
+    height:100%;
+    width:100%;
+    padding: 20px 10px;
+    margin: 10px 0px;
+    background:black;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+  } */
+  .category-div{
+    margin: auto;
+    height: 90%;
+    width: 70%;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: border-radius 1s;
+    text-align: center;
+  }
+  .category-div:hover{
+    border-radius:5px;
+  }
+  #root{
+    min-height:800px;
+  }
+  /* .cover{
+    height: 300px;
+    perspective: 800px;
+    margin:20px 0px;
+  }
+  .card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
+}
+.cover:hover .card{
+  transform:translateX(-100%) rotateY(180deg);
+} */
