@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>  
  
@@ -15,27 +16,36 @@
       <div class="navtabcontainer">
         <ul class="navlist">
           <li>
-            <a>Home</a>
+            <a onclick="loadhtml('./home.html','#root')">Home</a>
           </li>
           <li>
             <a onclick="loadhtml('./insights.html','#root')">Insights</a>
           </li>
-          <li>
-            <a>Research Services</a>
-            <div class="dropdown cart-drop">
-              <ul class="reseatch-list">
+          <li class="dropli">
+            <a class="dropsign">Research Services</a>
+            <div class="dropdown">
+              <ul class="research-list">
                 <li>Research Materials</li>
                 <li>Sources</li>
               </ul>
             </div>
           </li>
-          <li>
-            <a>Industry Vertical</a>
+          <li class="dropli">
+            <a class="dropsign">Industry Vertical</a>
+            <div class="dropdown">
+              <ul class="industrylist">
+                <li>Automobiles</li>
+                 <li>Chemicals</li> 
+                  <li>Construction</li>
+                  <li>Energy</li>
+                  <li>Financials</li>
+              </ul>
+            </div>
           </li>
           <li>
             <a>Newsroom</a>
           </li>
-          <li>
+          <li class="dropli">
             <a class="dropsign">About</a> 
             <div class="dropdown">
               <ul class="account-list">
@@ -48,12 +58,6 @@
           </li>
           <li>
             <a>Contact Us</a>
-            <div class="dropdown">
-              <ul>
-                <li>Contact Details</li>
-                <li>companyname@abc.com</li>
-              </ul>
-            </div>
           </li>
         </ul>
     </div>
