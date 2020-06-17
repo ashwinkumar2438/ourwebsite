@@ -18,6 +18,9 @@
             <a>Home</a>
           </li>
           <li>
+            <a onclick="loadhtml('./insights.html','#root')">Insights</a>
+          </li>
+          <li>
             <a>Research Services</a>
             <div class="dropdown cart-drop">
               <ul class="reseatch-list">
@@ -25,6 +28,12 @@
                 <li>Sources</li>
               </ul>
             </div>
+          </li>
+          <li>
+            <a>Industry Vertical</a>
+          </li>
+          <li>
+            <a>Newsroom</a>
           </li>
           <li>
             <a class="dropsign">About</a> 
@@ -60,21 +69,14 @@
   </div>
 </body>
 <script>
-    async function fetchData(){
-        var [htmlpromise,data]=await Promise.all([fetch("./product.html"),fetch("./data.json")]);
-        var [htmltext,alldata]=await Promise.all([htmlpromise.text(),data.json()]);
-        var parser=new DOMParser();
-        console.log(alldata);
-        alldata.landing_data.forEach((a,i)=>{
-          var doc=parser.parseFromString(htmltext,'text/html').body.children[0];
-          doc.setAttribute("id",i)
-          doc.querySelector('h5').innerText=a.name;
-          doc.querySelector('img').setAttribute("src",a.url);
-          console.log(doc);
-          document.getElementById('root').appendChild(doc);
-        })
-       
+ 
+    async function loadhtml(path,queryid){
+      var htmlpromise=await fetch(path);
+      var htmltext=await htmlpromise.text();
+      // var doc=parser.parseFromString(htmltext,'text/html').body.children[0];
+      document.querySelector(queryid).innerHTML=htmltext
     }
+    loadhtml("./home.html",'#root')
     document.onscroll=()=>{
       if(window.scrollY>730){
         document.querySelector(".navbar").setAttribute('style','background:black;z-index:1')

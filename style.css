@@ -46,12 +46,15 @@
   }
 
 .dropsign::after{
-    content: '\uFF0B';
+    content: ' \002B';
     border: 0 none;
     font-size: 12px;
     font-weight: 900;
     margin-left: 5px;
     transition: all 0.33s ease;
+}
+.dropsign:hover {
+  color:red;
 }
 
   div.dropdown ul{
